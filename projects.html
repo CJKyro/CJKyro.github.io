@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Foundation Intro</title>
+	<link rel="stylesheet" href="css/foundation.css">
+        <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <div class="off-canvas-wrapper">
+        <!-- Your menu or Off-canvas content goes here -->
+        <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
+            <!-- Close button -->
+            <button class="close-button" aria-label="Close menu" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <!-- comment -->
+            <!-- Menu -->
+            <ul class="vertical menu">
+                <li><a href="index.html">Home page</a></li>
+                <li><a href="projects.html">Projects</a></li> <!--repalce hashtag with the file name -->
+                <li><a href="resume.html">resume</a></li>
+                <li><a href="fun.html">fun</a></li>
+
+            </ul>
+        </div>
+        <!-- Your page content lives here -->
+        <div class="off-canvas-content" data-off-canvas-content>
+            <!-- main content within a `grid-container` -->
+            <div class="grid-container">
+                
+                <div class="grid-x grid-padding-x">
+                    <button type="button" class="cell large-auto button" data-toggle="offCanvas">Open Menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     
+  <!-- Projects header -->
+        <div class="grid-x grid-padding-x">
+          <div class="cell">
+            <h1 style="margin-top: 1rem;">Projects</h1>
+            <p class="lead">Selected engineering, software, and embedded systems work. Each card includes a short summary and an image slot you can replace.</p>
+          </div>
+        </div>
+
+        <!-- Project cards -->
+        <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3">
+ 
+          <!-- Smart Bathroom (NDA) -->
+          <!-- <div class="cell">
+            <div class="card">
+              <div class="card-divider">Smart Bathroom (Embedded Systems, NDA)</div>
+              <div class="card-section">
+                <img src="images/project-smart-bathroom.jpg" alt="Smart Bathroom Project (placeholder)" style="width:100%;height:auto;">
+                <p>Exploring sensing, user identification, and secure cloud logging for a medical partner. Role: embedded systems + architecture. Public details limited due to NDA.</p>
+                <ul>
+                  <li>Sensors: uroflow, pressure, vision concepts</li>
+                  <li>Focus: reliability, privacy, threat modeling</li>
+                </ul>
+              </div>
+            </div>
+          </div> -->
+
+
+<!-- ENGR 432 IoT System — Multi-node + Android Dashboard -->
+        <div class="cell">
+        <div class="card">
+            <div class="card-divider">ENGR 432 IoT System — Multi-node + Android Dashboard</div>
+            <div class="card-section">
+            <img src="images\IoT_system pic.png" 
+                alt="Raspberry Pi coordinator with STM32/ESP nodes and Android BLE dashboard"
+                class="project-image"
+                loading="lazy">
+                
+
+            <p>
+                Built a three-node IoT system: Raspberry Pi coordinator + two STM32 sensor nodes (ESP8266 links) with an Android BLE dashboard I developed on a Galaxy S23 Ultra. The app displays light and temperature (and more) at a steady 1 s cadence and includes a switch control that toggles an LED on the hardware.
+            </p>
+
+            <ul>
+                <li>Network: Pi coordinator; ESP-NOW between ESP8266s; USB-UART to Pi; HM-10 BLE to phone.</li>
+                <li>Sensors: LM35 (temp), photoresistor (LDR), soil moisture (ADC), BME680 (temp/humidity/pressure/altitude/gas).</li>
+                <li>Mobile: Java/Android, BLE GATT (FFE0/FFE1), auto-reconnect, stable 1 s UI refresh, labels/values split to avoid flicker.</li>
+                <li>Control path: app switch → BLE UART → Pi → LED GPIO, real-time feedback.</li>
+                <li>Performance (S23 Ultra): ~2 s to first reading; <50 ms jitter at 1 Hz; +35 mA scanning, +8 mA connected.</li>
+            </ul>
+
+            <!-- Standards-compliant, no-JS expandable section -->
+            <details>
+                <summary>Technical details & fixes</summary>
+                <ul>
+                <li>Payload reliability: HM-10 MTU (20 B) caused truncation → minified JSON and sent comma-split chunks with ~100 ms gaps; final chunk ~200 ms to land on 1 s cadence.</li>
+                <li>Service discovery: many HM-10 clones lack custom UUIDs → filtered by device name (“Lab8BLE”), used default FFE0/FFE1.</li>
+                <li>UI correctness: two-TextView rows (label + value) to prevent label overwrite and jitter.</li>
+                <li>Threading: routed notifications through main thread handler to fix CalledFromWrongThreadException.</li>
+                <li>Timing mix-ups: ESP→Pi lines occasionally interleaved → enforced single-line frames and manual split on Pi.</li>
+                <li>Alerts: prototyped email/SMS (SMTP/Twilio); rate-limit and verification blocked production use for the lab.</li>
+                </ul>
+                <p style="margin-top:.5rem">
+                References:
+                <a href="https://randomnerdtutorials.com/esp-now-esp8266-nodemcu-arduino-ide/" target="_blank" rel="noopener">ESP-NOW with ESP8266</a>,
+                <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html#bluetooth" target="_blank" rel="noopener">Raspberry Pi BLE intro</a>
+                </p>
+            </details>
+            </div>
+        </div>
+        </div>
+
+          <!-- Echo Effect on Zynq-7000 -->
+          <div class="cell">
+            <div class="card">
+              <div class="card-divider">Echo Effect on Zynq-7000 (Verilog/C)</div>
+              <div class="card-section">
+                <img src="https://www.circuitspecialists.com/content/1102676/01DIG410248_1024x1024.webp" alt="Zynq Echo Effect (placeholder)" style="width:100%;height:auto;">
+                <p>Audio processing pipeline on Zedboard: custom HDL and C drivers implementing an echo effect with tunable delay.</p>
+                <ul>
+                  <li>AXI-Stream, DMA, timing verification</li>
+                  <li>HLS experiments for acceleration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Verilog 16-bit Adder + Testbench -->
+          <div class="cell">
+            <div class="card">
+              <div class="card-divider">Verilog 16-bit Adder + Testbench</div>
+              <div class="card-section">
+                <img src="https://vlsigyan.com/wp-content/uploads/2017/08/ripple_carry_adder.png" alt="Verilog Adder (placeholder)" style="width:100%;height:auto;">
+                <p>Clean, synthesizable adder with randomized testbench and coverage goals; parameterized for reuse.</p>
+                <ul>
+                  <li>Assertions + waveform review</li>
+                  <li>CI-ready simulation scripts</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+
+<!-- Smartwatch Activity Recognition -->
+<div class="cell">
+  <div class="card">
+    <div class="card-divider">Smartwatch Activity Recognition</div>
+    <div class="card-section">
+      <img src="images\wearable.png"
+           alt="Smartwatch activity recognition graphs"
+           class="project-image"
+           loading="lazy"   >
+
+      <p>
+        Used smartwatch accelerometer data to recognize human activities across different sensor placements 
+        (wrist, waist, ankle, body). Applied MATLAB scripting and AI-assisted coding to streamline analysis 
+        and focus on interpreting signal patterns.
+      </p>
+
+      <ul>
+        <li>Sensor placement effects:  
+            • Wrist → high variability from position differences.  
+            • Waist → stable, consistent with core movement.  
+            • Ankle → strong periodic variance from walking/running.  
+            • Body → low variance since it moves least.</li>
+
+        <li>Orientation insights: Mean acceleration aligned with sensor orientation. Vertical sensors had one 
+            axis near +1 g, others near 0; orientation shifts showed up as mean changes.</li>
+
+        <li>AI-assisted workflow: Generated MATLAB scripts to batch-load CSVs, segment (1 s windows), compute 
+            mean/variance, and auto-plot per sensor location. Standardized figure styling (labels, legends, 
+            axis units, PNG export).</li>
+
+        <li>Human review: Verified sampling rates, window boundaries, and units to confirm correct AI-generated output.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- FydMee Web Development -->
+<div class="cell">
+  <div class="card">
+    <div class="card-divider">FydMee — Web Development</div>
+    <div class="card-section">
+      <!-- Clickable image placeholder -->
+      <a href="https://fydmee.com/" target="_blank" rel="noopener">
+        <img src="https://media.licdn.com/dms/image/v2/D4E0BAQGpKsWsnlsGMg/company-logo_200_200/company-logo_200_200/0/1730995911975/fydmee_logo?e=2147483647&v=beta&t=qBbe0Osy32_P_PLJ4VCQJMlIxgt2DD2KUGQq--C4Z9w"
+             alt="FydMee web platform (placeholder)"
+             style="width:100%;height:auto;">
+      </a>
+
+      <p>
+        Worked as the web developer for <a href="https://fydmee.com/" target="_blank" rel="noopener">FydMee</a>, 
+        building out the user-facing platform and admin dashboard. Focused on making the site fast, mobile-friendly, and easy to maintain.
+      </p>
+
+      <ul>
+        <li>Designed and implemented responsive layouts with HTML, CSS, and JavaScript.</li>
+        <li>Integrated APIs and ensured smooth interaction with backend microservices.</li>
+        <li>Improved UI consistency and performance across devices.</li>
+      </ul>
+
+      <p>
+        <a href="https://fydmee.com/" target="_blank" rel="noopener">Visit fydmee.com →</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Basys 3 Clock (12/24 Hour Digital Design) -->
+<div class="cell">
+  <div class="card">
+    <div class="card-divider">Basys 3 — 12/24 Hour Digital Clock</div>
+    <div class="card-section">
+      <img src="images\basys3 12.24 clock.png"
+           alt="Basys 3 Digital Clock (placeholder)"
+           style="width:100%;height:auto;">
+
+      <p>
+        Designed and implemented a fully functional digital clock on the Basys 3 FPGA development board,
+        capable of toggling between 12-hour and 24-hour display formats. The project combined timing
+        logic, counters, and seven-segment display control.
+      </p>
+
+      <ul>
+        <li>Created Verilog modules for second, minute, and hour counters with reset/sync logic.</li>
+        <li>Multiplexed seven-segment displays for real-time clock output.</li>
+        <li>Implemented AM/PM indicator logic for 12-hour mode.</li>
+        <li>Added input controls (switches/buttons) to toggle 12/24-hour mode and reset.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <!-- include before closing <body> tag -->
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script type="application/javascript">
+        $(document).foundation();
+    </script>
+</body>
+</html>
+
+
+

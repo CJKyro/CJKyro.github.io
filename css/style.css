@@ -1,0 +1,81 @@
+/* Global */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #ffffff;
+  color: #222222;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Card styling */
+.card {
+  border: 0.0625rem solid #e0e0e0;   /* 1px → 0.0625rem */
+  border-radius: 0.375rem;           /* 6px → 0.375rem */
+  overflow: hidden;
+  box-shadow: 0 0.125rem 0.375rem rgba(0,0,0,0.06); /* 2px → 0.125rem, 6px → 0.375rem */
+  transition: transform 0.15s ease;
+  background: #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-0.1875rem); /* -3px → -0.1875rem */
+}
+
+/* Card header bar */
+.card-divider {
+  background: #510c76; /* UST purple */
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.75rem;
+}
+
+/* Buttons */
+.button {
+  background-color: #510c76;   /* UST purple */
+  border-radius: 0.25rem;      /* 4px → 0.25rem */
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.button:hover {
+  background-color: #6b1a94;
+  color: #ffffff;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #510c76;
+}
+
+/* Lead paragraph (e.g., project intro text) */
+.lead {
+  font-size: 1.15rem;
+  color: #444444;
+}
+
+/* Grid container spacing */
+.grid-container {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Off-canvas menu */
+.off-canvas {
+  background-color: #510c76;
+  color: #ffffff;
+}
+
+.off-canvas .menu a {
+  color: #eeeeee;
+}
+
+.off-canvas .menu a:hover {
+  color: #ffffff;
+  font-weight: 600;
+}

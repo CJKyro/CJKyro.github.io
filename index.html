@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Foundation Intro</title>
 	<link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
     <div class="off-canvas-wrapper">
@@ -17,41 +19,42 @@
             <!-- comment -->
             <!-- Menu -->
             <ul class="vertical menu">
-                <li><a href="#">Foundation</a></li>
-                <li><a href="#">Dot</a></li>
-                <li><a href="#">ZURB</a></li>
-                <li><a href="#">Com</a></li>
-                <li><a href="#">Slash</a></li>
-                <li><a href="#">Sites</a></li>
+                <li><a href="index.html">Home page</a></li>
+                <li><a href="projects.html">Projects</a></li> <!--repalce hashtag with the file name -->
+                <li><a href="resume.html">resume</a></li>
+                <li><a href="fun.html">Fun</a></li>
+
             </ul>
         </div>
         <!-- Your page content lives here -->
         <div class="off-canvas-content" data-off-canvas-content>
             <!-- main content within a `grid-container` -->
             <div class="grid-container">
-
-                
-                <!-- `grid-x` represents a row -->
-                <div class="grid-x grid-padding-x">
-                    <div class="cell small-6 large-4" style="background-color: #ADD8E6;">Small 6 / Large 4</div>
-                    <div class="cell small-6 large-8" style="background-color: #90EE90;">Small 6 / Large 8</div>
-                    <div class="cell small-6 large-12" style="background-color: #e26ab4;">Small 6 / Large 12</div>
-                </div>
-                
-                <div class="grid-x grid-padding-x">
-                    <div class="cell large-auto" style="background-color: #ADD8E6;">One</div>
-                    <div class="cell large-auto" style="background-color: #90EE90;">Two</div>
-                    <div class="cell large-auto" style="background-color: #ADD8E6;">Three</div>
-                    <div class="cell large-auto" style="background-color: #90EE90;">Four</div>
-                    <div class="cell large-auto" style="background-color: #ADD8E6;">Five</div>
-                </div>
-                
                 <div class="grid-x grid-padding-x">
                     <button type="button" class="cell large-auto button" data-toggle="offCanvas">Open Menu</button>
                 </div>
             </div>
         </div>
     </div>
+                <!--SPOT FOR HEADSHOT -->
+                <div class="grid-x grid-padding-x">
+                    <div class="cell small-12 medium-4">
+                        <!-- Replace src with your image file -->
+                        <img src="images\me.png" alt="My Headshot" style="max-width: 100%; border-radius: 8px;">
+                    </div>
+
+                    <!-- BLANK SPOT FOR INFO ABOUT YOURSELF -->
+                    <div class="cell small-12 medium-8">
+                        <h2>Cody Kyro</h2>
+                        <p>Computer Engineering student<!-- Write a short intro about yourself, e.g. major, goals, passions --></p>
+                        <ul>
+                            <li><!-- Add fun fact #1 --></li>
+                            <li><!-- Add fun fact #2 --></li>
+                            <li><!-- Add fun fact #3 --></li>
+                        </ul>
+                    </div>
+                </div>
+
 
     <!-- include before closing <body> tag -->
     <script src="js/vendor/jquery.js"></script>
@@ -65,4 +68,3 @@
 
 
 
-<!--jasdl;kajsd;ljasdl;k-->

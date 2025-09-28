@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cody J. Kyro — Fun</title>
+  <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="off-canvas-wrapper">
+    <!-- Off-canvas menu -->
+    <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
+      <button class="close-button" aria-label="Close menu" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <ul class="vertical menu">
+        <li><a href="index.html">Home page</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="fun.html">Fun</a></li>
+      </ul>
+    </div>
+
+    <!-- Page content -->
+    <div class="off-canvas-content" data-off-canvas-content>
+      <div class="grid-container">
+        <!-- Open Menu button -->
+        <div class="grid-x grid-padding-x">
+          <button type="button" class="cell large-auto button" data-toggle="offCanvas">Open Menu</button>
+        </div>
+
+        <!-- Fun content -->
+        <div class="grid-x grid-padding-x">
+          <div class="cell">
+            <h1 style="margin-top:1rem;">Fun Stuff</h1>
+            <p class="lead">Here are some of my hobbies, interests, and things that make me who I am outside of engineering.</p>
+          </div>
+        </div>
+
+        <!-- Hobbies -->
+        <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3">
+          <div class="cell">
+            <div class="card">
+              <div class="card-divider">Hobbies</div>
+              <div class="card-section">
+                <p>gambling</p>
+                <img src="images\gamblingImage.png" alt="Hockey action" class="project-image">
+              </div>
+            </div>
+          </div>
+
+          <div class="cell">
+            <div class="card">
+              <div class="card-divider">Aspirations</div>
+              <div class="card-section">
+                <p>Get a job so I can gamble more money</p>
+                <img src="images/aspirations.jpg" alt="Future goals" class="project-image">
+              </div>
+            </div>
+          </div>
+
+          <div class="cell">
+            <div class="card">
+              <div class="card-divider">Pets</div>
+              <div class="card-section">
+                <p>At home, I spend time with my dog</p>
+                <img src="images\izzy.png" alt="My pet" class="project-image">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Media section -->
+        <div class="grid-x grid-padding-x">
+          <div class="cell">
+            <h3 style="margin-top:2rem;">Media</h3>
+            <p>Here are some fun links and videos:</p>
+            <ul>
+              <li><a href="https://www.nhl.com" target="_blank" rel="noopener">NHL Hockey</a></li>
+              <li><a href="https://www.youtube.com/watch?v=PljDuynF-j0" target="_blank" rel="noopener">How to Play (and Win) at Blackjack</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Foundation scripts -->
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/what-input.js"></script>
+  <script src="js/vendor/foundation.js"></script>
+  <script>$(document).foundation();</script>
+</body>
+</html>
