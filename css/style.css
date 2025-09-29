@@ -12,7 +12,9 @@ body {
   padding: 0;
 }
 
-
+a {
+color: #510c76;
+}
 
 /* Card styling */
 .card {
