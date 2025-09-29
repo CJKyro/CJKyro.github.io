@@ -1,3 +1,7 @@
+/* ===========================
+   Custom Styles — UST Themed
+   =========================== */
+
 /* Global */
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -7,6 +11,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 
 
 /* Card styling */
