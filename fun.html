@@ -6,6 +6,26 @@
   <title>Cody J. Kyro — Fun</title>
   <link rel="stylesheet" href="css/foundation.css">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* --- Blackjack minimal styles --- */
+    .bj-table { background:#0b1220; color:#e8eefc; border-radius:14px; padding:1rem; }
+    .bj-row { display:flex; flex-wrap:wrap; align-items:center; gap:.75rem; margin:.5rem 0; }
+    .bj-label { font-weight:700; opacity:.9; min-width:6.5rem; }
+    .bj-cards { display:flex; gap:.35rem; flex-wrap:wrap; }
+    .bj-card {
+      font-size:1.35rem; line-height:1; padding:.35rem .5rem; border-radius:10px;
+      background:#111a30; border:1px solid #1f2a44; min-width:2.2rem; text-align:center;
+      box-shadow:0 1px 0 rgba(255,255,255,0.06) inset, 0 2px 6px rgba(0,0,0,0.25);
+    }
+    .bj-card.red { color:#ffb3b3; }
+    .bj-tot { font-weight:700; margin-left:.25rem; opacity:.95; }
+    .bj-status { margin:.35rem 0 .6rem; min-height:1.2rem; font-weight:700; }
+    .bj-status.win { color:#6ee7a8; }     /* green-ish */
+    .bj-status.lose { color:#fca5a5; }    /* red-ish */
+    .bj-status.push { color:#93c5fd; }    /* blue-ish */
+    .bj-controls .button { margin-right:.4rem; margin-bottom:.4rem; }
+    .muted { opacity:.75; font-size:.95rem; }
+  </style>
 </head>
 <body>
   <div class="off-canvas-wrapper">
@@ -34,27 +54,24 @@
         <div class="grid-x grid-padding-x">
           <div class="cell">
             <h1 style="margin-top:1rem;">Fun Stuff</h1>
-            <p class="lead">Here are some of my hobbies, interests, and things that make me who I am outside of engineering.</p>
+            <p class="lead">A few interests that keep me balanced outside of engineering.</p>
           </div>
         </div>
 
-        <!-- Hobbies -->
+        <!-- Hobbies / Aspirations / Pet -->
         <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3">
           <div class="cell">
             <div class="card">
               <div class="card-divider">Hobbies</div>
               <div class="card-section">
-                <p>GAMBLING!!!</p>
-                <!-- Added, as requested -->
                 <ul>
-                  <li>playing video games (esports nights + chill RPGs)</li>
-                  <li>walking my dog and checking out new trails</li>
-                  <li>spending time with friends (food, games, hockey)</li>
-                  <li>pickup hockey / gym to offset screen time</li>
-                  <li>PC builds and random electronics tinkering</li>
-                  <li>music + podcasts on long walks</li>
+                  <li>Playing video games and coaching esports</li>
+                  <li>Trail walks and pickup hockey</li>
+                  <li>PC building and electronics tinkering</li>
+                  <li>Podcasts and music on long walks</li>
+                  <li>Time with friends (food, games, hockey)</li>
                 </ul>
-                <img src="images\gamblingImage.png" alt="Hockey action" class="project-image">
+                <img src="images/Rocket_League_logo.png" alt="Hockey action" class="project-image">
               </div>
             </div>
           </div>
@@ -63,8 +80,10 @@
             <div class="card">
               <div class="card-divider">Aspirations</div>
               <div class="card-section">
-                <p>Get a job so I can gamble more money!</p>
-                <img src="images\jobimage.png" alt="Future goals" class="project-image">
+                <p><strong>Roles I'm exploring:</strong> Hardware/Firmware Engineering, Embedded Software, AI & Robotics, and Systems roles across aerospace/defense, medical devices/health tech, and consumer electronics.</p>
+                <p><strong>Near-term goals:</strong> join a mission-driven engineering team, ship reliable embedded/AI systems, and contribute to products that improve safety, health, or everyday usability.</p>
+                <p><strong>Long-term goals:</strong> lead cross-disciplinary teams, mentor junior engineers, and build human-centered technology with measurable impact-while continuing lifelong learning in controls, ML, and secure systems.</p>
+                <img src="images/Generated Image October 01, 2025 - 10_26AM.png" alt="Future goals" class="project-image">
               </div>
             </div>
           </div>
@@ -73,25 +92,41 @@
             <div class="card">
               <div class="card-divider">Pet</div>
               <div class="card-section">
-                <p>At home, I spend time with my dog Her name is Izzy</p>
-                <img src="images\izzy.png" alt="My pet" class="project-image">
-                <img src="images\izzy2.png" alt="My pet" class="project-image">
+                <p>At home I spend time with my dog, Izzy. She's a two-year-old French Bulldog with a huge personality</p>
+                <img src="images/izzy.png" alt="My dog, Izzy" class="project-image">
+                <img src="images/izzy2.png" alt="Izzy relaxing" class="project-image">
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Media section -->
+        <!-- === Blackjack Game (replaces former Media section) === -->
         <div class="grid-x grid-padding-x">
           <div class="cell">
-            <h3 style="margin-top:2rem;">Media</h3>
-            <p>Here are some fun links and videos:</p>
-            <ul>
-              <li><a href="https://www.nhl.com" target="_blank" rel="noopener">NHL Hockey</a></li>
-              <li><a href="https://www.youtube.com/watch?v=PljDuynF-j0" target="_blank" rel="noopener">How to Play (and Win) at Blackjack</a></li>
-            </ul>
+            <h3 style="margin-top:2rem;">Blackjack Game</h3>
+            <div class="bj-table callout">
+              <div class="bj-row">
+                <div class="bj-label">Dealer</div>
+                <div id="dealer-cards" class="bj-cards"></div>
+                <div id="dealer-total" class="bj-tot"></div>
+              </div>
+              <div class="bj-row">
+                <div class="bj-label">You</div>
+                <div id="player-cards" class="bj-cards"></div>
+                <div id="player-total" class="bj-tot"></div>
+              </div>
+              <div id="bj-status" class="bj-status"></div>
+              <div class="bj-controls">
+                <button id="dealBtn" class="button primary">🎲 Deal</button>
+                <button id="hitBtn" class="button success" disabled>🖐️ Hit</button>
+                <button id="standBtn" class="button warning" disabled>✋ Stand</button>
+              </div>
+              <div class="muted">Tip: Try to reach 21 without going over. Dealer hits to 17.</div>
+            </div>
           </div>
         </div>
+        <!-- === /Blackjack === -->
+
       </div>
     </div>
   </div>
@@ -101,5 +136,199 @@
   <script src="js/vendor/what-input.js"></script>
   <script src="js/vendor/foundation.js"></script>
   <script>$(document).foundation();</script>
+
+  <!-- Blackjack logic -->
+  <script>
+    (function () {
+      const SUITS = [
+        {s:'♠️', red:false},
+        {s:'♥️', red:true},
+        {s:'♦️', red:true},
+        {s:'♣️', red:false},
+      ];
+      const RANKS = [
+        {r:'A', v:11},
+        {r:'2', v:2}, {r:'3', v:3}, {r:'4', v:4}, {r:'5', v:5},
+        {r:'6', v:6}, {r:'7', v:7}, {r:'8', v:8}, {r:'9', v:9},
+        {r:'10', v:10}, {r:'J', v:10}, {r:'Q', v:10}, {r:'K', v:10}
+      ];
+
+      const $dealerCards = document.getElementById('dealer-cards');
+      const $playerCards = document.getElementById('player-cards');
+      const $dealerTotal = document.getElementById('dealer-total');
+      const $playerTotal = document.getElementById('player-total');
+      const $status = document.getElementById('bj-status');
+      const $deal = document.getElementById('dealBtn');
+      const $hit = document.getElementById('hitBtn');
+      const $stand = document.getElementById('standBtn');
+
+      let deck = [];
+      let dealer = [];
+      let player = [];
+      let inRound = false;
+      let dealerHidden = null; // store the hidden card element
+
+      function buildDeck() {
+        const d = [];
+        SUITS.forEach(su => {
+          RANKS.forEach(ra => {
+            d.push({rank: ra.r, val: ra.v, suit: su.s, red: su.red});
+          });
+        });
+        // simple shuffle (Fisher-Yates)
+        for (let i = d.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [d[i], d[j]] = [d[j], d[i]];
+        }
+        return d;
+      }
+
+      function handValue(hand) {
+        let total = 0, aces = 0;
+        for (const c of hand) {
+          total += c.val;
+          if (c.rank === 'A') aces++;
+        }
+        // downgrade Aces from 11 to 1 while busting
+        while (total > 21 && aces > 0) {
+          total -= 10;
+          aces--;
+        }
+        return total;
+      }
+
+      function cardEl(card, faceDown=false) {
+        const el = document.createElement('span');
+        el.className = 'bj-card' + (card.red ? ' red' : '');
+        el.textContent = faceDown ? '🂠' : `${card.rank}${card.suit}`;
+        return el;
+      }
+
+      function render(hideDealerHole = true) {
+        // clear
+        $dealerCards.innerHTML = '';
+        $playerCards.innerHTML = '';
+        $status.textContent = '';
+        $status.className = 'bj-status';
+
+        // dealer
+        if (inRound && hideDealerHole && dealer.length >= 2) {
+          $dealerCards.appendChild(cardEl(dealer[0], false));
+          dealerHidden = cardEl(dealer[1], true);
+          $dealerCards.appendChild(dealerHidden);
+          for (let i = 2; i < dealer.length; i++) {
+            $dealerCards.appendChild(cardEl(dealer[i], false));
+          }
+          $dealerTotal.textContent = ''; // hidden until reveal
+        } else {
+          dealer.forEach(c => $dealerCards.appendChild(cardEl(c, false)));
+          $dealerTotal.textContent = '(' + handValue(dealer) + ')';
+        }
+
+        // player
+        player.forEach(c => $playerCards.appendChild(cardEl(c, false)));
+        $playerTotal.textContent = '(' + handValue(player) + ')';
+      }
+
+      function setButtons(state) {
+        // state: 'fresh' | 'active' | 'locked'
+        if (state === 'fresh') {
+          $deal.disabled = false;
+          $hit.disabled = true;
+          $stand.disabled = true;
+        } else if (state === 'active') {
+          $deal.disabled = true;
+          $hit.disabled = false;
+          $stand.disabled = false;
+        } else { // locked
+          $deal.disabled = false;
+          $hit.disabled = true;
+          $stand.disabled = true;
+        }
+      }
+
+      function message(txt, type) {
+        $status.textContent = txt;
+        $status.className = 'bj-status ' + (type || '');
+      }
+
+      function startRound() {
+        deck = buildDeck();
+        dealer = [];
+        player = [];
+        inRound = true;
+        dealerHidden = null;
+        // initial deal: P, D, P, D
+        player.push(deck.pop());
+        dealer.push(deck.pop());
+        player.push(deck.pop());
+        dealer.push(deck.pop());
+        setButtons('active');
+        render(true);
+
+        const p = handValue(player);
+        const d = handValue(dealer);
+        // check naturals (reveal)
+        if (p === 21 || d === 21) {
+          endRound();
+        } else {
+          message('Your move: Hit or Stand?');
+        }
+      }
+
+      function hit() {
+        if (!inRound) return;
+        player.push(deck.pop());
+        render(true);
+        const p = handValue(player);
+        if (p > 21) {
+          endRound();
+        } else {
+          message('You drew a card. Hit or Stand?');
+        }
+      }
+
+      function dealerPlay() {
+        // reveal dealer hole
+        render(false);
+        // Dealer hits to 17 (standard: hit on <17, stand on 17+)
+        while (handValue(dealer) < 17) {
+          dealer.push(deck.pop());
+          render(false);
+        }
+      }
+
+      function endRound() {
+        // reveal dealer and settle
+        dealerPlay();
+        const p = handValue(player);
+        const d = handValue(dealer);
+
+        if (p > 21) {
+          message('Bust! Dealer wins.', 'lose');
+        } else if (d > 21) {
+          message('Dealer busts. You win!', 'win');
+        } else if (p > d) {
+          message('You win!', 'win');
+        } else if (p < d) {
+          message('Dealer wins.', 'lose');
+        } else {
+          message('Push (tie).', 'push');
+        }
+        inRound = false;
+        setButtons('locked');
+      }
+
+      // Wire up controls
+      $deal.addEventListener('click', startRound);
+      $hit.addEventListener('click', hit);
+      $stand.addEventListener('click', endRound);
+
+      // initial state
+      setButtons('fresh');
+      render(false);
+      message('Press Deal to start.');
+    })();
+  </script>
 </body>
 </html>
