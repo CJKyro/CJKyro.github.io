@@ -3,13 +3,80 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cody Kyro</title>
+  <title>Cody J. Kyro | Computer Engineering Portfolio</title>
   <link rel="stylesheet" href="css/foundation.css">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .hero-card {
+      padding: 1.5rem;
+      border-radius: 14px;
+      background: #f6f7fb;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 14px;
+      display: block;
+      margin: 0 auto 1rem auto;
+    }
+
+    .section-space {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mini-card {
+      height: 100%;
+    }
+
+    .mini-card .callout,
+    .mini-card .card {
+      height: 100%;
+      margin-bottom: 0;
+    }
+
+    .quick-stat {
+      text-align: center;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #f6f7fb;
+      height: 100%;
+    }
+
+    .quick-stat h3 {
+      margin-bottom: .25rem;
+    }
+
+    .quick-links .button {
+      margin-right: .5rem;
+      margin-bottom: .5rem;
+    }
+
+    .project-preview {
+      height: 100%;
+    }
+
+    .project-preview .card {
+      height: 100%;
+      margin-bottom: 0;
+    }
+
+    .project-preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .muted-text {
+      color: #666;
+    }
+  </style>
 </head>
 <body>
   <div class="off-canvas-wrapper">
-    <!-- Off-canvas menu -->
     <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
       <button class="close-button" aria-label="Close menu" type="button" data-close>
         <span aria-hidden="true">&times;</span>
@@ -22,75 +89,226 @@
       </ul>
     </div>
 
-    <!-- Page content -->
     <div class="off-canvas-content" data-off-canvas-content>
       <div class="grid-container">
-        <!-- Open Menu button (matches Fun page) -->
+
         <div class="grid-x grid-padding-x">
           <button type="button" class="cell large-auto button" data-toggle="offCanvas">Open Menu</button>
         </div>
 
-        <!-- About Me -->
-        <section class="grid-x grid-padding-x grid-margin-y medium-align-middle">
-          <!-- Headshot -->
-          <div class="cell small-12 medium-4">
-            <img src="images/ckky.png" alt="Headshot of Cody Kyro" class="thumbnail">
+        <section class="grid-x grid-padding-x hero-card align-middle">
+          <div class="cell small-12 medium-4 text-center">
+            <img src="images/ckky.png" alt="Headshot of Cody Kyro" class="hero-image">
           </div>
-          <!-- About text -->
+
           <div class="cell small-12 medium-8">
-            <h2>About Me</h2>
-            <p>
-              I'm a <strong>senior</strong> in <strong>Computer Engineering</strong> at the
-              <a href="https://stthomas.edu" target="_blank" rel="noopener">University of St. Thomas</a>.
-              I design and build embedded and real-time systems, including an FPGA audio pipeline on Zedboard
-              with tunable echo, an Android BLE IoT dashboard for multi-sensor nodes, and LC-3/Verilog projects.
-              I'm pursuing roles in Software Engineering, Hardware Engineering, embedded firmware, FPGA/DSP, and real-time systems.
+            <h1 style="margin-bottom:.35rem;">Cody J. Kyro</h1>
+            <p class="lead" style="margin-bottom:.75rem;">
+              Senior Computer Engineering student building embedded, IoT, and hardware-software systems.
             </p>
-            <ul>
-              <li>Focus: Embedded firmware, FPGA/DSP, real-time systems</li>
-              <li>Tools: C/C++, Verilog, Vivado/Vitis, HLS, Python</li>
-              <li>Recent: AXI-Stream + DMA echo effect with timing verification</li>
+
+            <p>
+              I am a Computer Engineering student at the University of St. Thomas with hands-on experience in embedded systems,
+              real-time data collection, Android BLE development, tutoring, and front-end web development. My work has ranged from
+              sensor-driven IoT systems and embedded security projects to FPGA and digital design work, and I am especially interested
+              in projects where hardware and software have to work together cleanly.
+            </p>
+
+            <div class="quick-links">
+              <a href="resume.html" class="button">View Resume</a>
+              <a href="projects.html" class="button hollow">View Projects</a>
+              <a href="fun.html" class="button hollow">Fun Page</a>
+            </div>
+
+            <ul class="menu simple" style="margin-top:.5rem;">
+              <li>(952) 228-7027</li>
+              <li><a href="mailto:ckyro15@gmail.com">ckyro15@gmail.com</a></li>
+              <li><a href="https://www.linkedin.com/in/cody-kyro" target="_blank" rel="noopener">LinkedIn</a></li>
             </ul>
           </div>
         </section>
 
-        <!-- Purple Callout Bubbles -->
-        <section class="grid-x grid-padding-x grid-margin-y">
-          <div class="cell small-12 medium-4">
-            <div class="callout">
-              <h3>Projects</h3>
-              <p>Embedded + FPGA work with photos and descriptions.</p>
-              <a href="projects.html" class="button small">Explore</a>
+        <section class="grid-x grid-padding-x small-up-1 medium-up-3 section-space">
+          <div class="cell">
+            <div class="quick-stat">
+              <h3>May 2026</h3>
+              <p class="muted-text">Expected Graduation</p>
             </div>
           </div>
-          <div class="cell small-12 medium-4">
-            <div class="callout">
-              <h3>Resume</h3>
-              <p>Education, experience, and awards in HTML format.</p>
-              <a href="resume.html" class="button small">View</a>
+          <div class="cell">
+            <div class="quick-stat">
+              <h3>3.7 GPA</h3>
+              <p class="muted-text">Computer Engineering</p>
             </div>
           </div>
-          <div class="cell small-12 medium-4">
-            <div class="callout">
-              <h3>Fun</h3>
-              <p>Hobbies, goals, and outside-of-class interests.</p>
-              <a href="fun.html" class="button small">See More</a>
+          <div class="cell">
+            <div class="quick-stat">
+              <h3>7 Semesters</h3>
+              <p class="muted-text">Dean's List</p>
             </div>
           </div>
         </section>
 
+        <section class="grid-x grid-padding-x section-space">
+          <div class="cell">
+            <h2>What I’m Doing Right Now</h2>
+          </div>
+
+          <div class="cell small-12 medium-4 mini-card">
+            <div class="callout">
+              <h4>ECE Tutor</h4>
+              <p>
+                I tutor students in circuit analysis, digital design, embedded systems, and programming, helping them debug problems
+                step by step and communicate technical ideas more clearly.
+              </p>
+            </div>
+          </div>
+
+          <div class="cell small-12 medium-4 mini-card">
+            <div class="callout">
+              <h4>Senior Design with Medtronic</h4>
+              <p>
+                I am part of an industry-sponsored senior design project focused on embedded systems, hardware-software integration,
+                and real-time data processing under NDA.
+              </p>
+            </div>
+          </div>
+
+          <div class="cell small-12 medium-4 mini-card">
+            <div class="callout">
+              <h4>Web Developer at FydMee</h4>
+              <p>
+                I build and improve responsive front-end experiences, support API-connected features, and work on making the platform
+                cleaner, faster, and easier to use.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid-x grid-padding-x section-space">
+          <div class="cell">
+            <h2>Featured Project Areas</h2>
+            <p class="muted-text">
+              A few examples of the kind of work I like building across embedded systems, mobile-connected hardware, and digital design.
+            </p>
+          </div>
+
+          <div class="cell small-12 medium-6 large-3 project-preview">
+            <div class="card">
+              <div class="card-divider">IoT + Android BLE</div>
+              <div class="card-section">
+                <img src="images/IoT_system pic.png" alt="IoT dashboard project">
+                <p>
+                  Multi-node Raspberry Pi and STM32 system with BLE phone interface, live sensor updates, and hardware control from mobile.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cell small-12 medium-6 large-3 project-preview">
+            <div class="card">
+              <div class="card-divider">Embedded Systems</div>
+              <div class="card-section">
+                <img src="images/safebox.png" alt="Embedded safe box project">
+                <p>
+                  Temperature-regulated safe box using sensors, keypad, LCD, servo locking, PWM control, and interrupt-driven behavior.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cell small-12 medium-6 large-3 project-preview">
+            <div class="card">
+              <div class="card-divider">FPGA + Digital Design</div>
+              <div class="card-section">
+                <img src="images/basys3 12.24 clock.png" alt="Basys 3 digital clock project">
+                <p>
+                  FPGA and digital logic work including timing logic, display control, and audio-processing style projects like the echo effect pipeline.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cell small-12 medium-6 large-3 project-preview">
+            <div class="card">
+              <div class="card-divider">Data + Analysis</div>
+              <div class="card-section">
+                <img src="images/wearable.png" alt="Smartwatch activity recognition project">
+                <p>
+                  Smartwatch activity recognition work using sensor data analysis, MATLAB workflows, and careful review of generated processing code.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cell" style="margin-top:1rem;">
+            <a href="projects.html" class="button">See All Projects</a>
+          </div>
+        </section>
+
+        <section class="grid-x grid-padding-x section-space">
+          <div class="cell small-12 medium-6 mini-card">
+            <div class="callout">
+              <h3>Skills</h3>
+              <p>
+                <strong>Languages:</strong> C/C++, Python, Java, HTML, CSS, JavaScript
+              </p>
+              <p>
+                <strong>Tools:</strong> STM32, Raspberry Pi, Multisim, Ultiboard, Xilinx Vivado, Keil uVision, MATLAB, Arduino
+              </p>
+              <p>
+                <strong>Strengths:</strong> technical writing, problem-solving, teamwork, adaptability, communication
+              </p>
+            </div>
+          </div>
+
+          <div class="cell small-12 medium-6 mini-card">
+            <div class="callout">
+              <h3>What I’m Looking For</h3>
+              <p>
+                I am most interested in roles involving embedded systems, firmware, hardware-software integration, real-time systems,
+                and practical engineering work where reliability and usability both matter.
+              </p>
+              <a href="resume.html" class="button hollow">More on Resume</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid-x grid-padding-x section-space">
+          <div class="cell small-12 medium-4 mini-card">
+            <div class="callout text-center">
+              <h4>Projects</h4>
+              <p>Engineering, software, embedded, FPGA, and mobile-connected work.</p>
+              <a href="projects.html" class="button small">Explore</a>
+            </div>
+          </div>
+
+          <div class="cell small-12 medium-4 mini-card">
+            <div class="callout text-center">
+              <h4>Resume</h4>
+              <p>Education, experience, skills, and current project work in one place.</p>
+              <a href="resume.html" class="button small">View</a>
+            </div>
+          </div>
+
+          <div class="cell small-12 medium-4 mini-card">
+            <div class="callout text-center">
+              <h4>Fun</h4>
+              <p>Hobbies, goals, your dog, and the blackjack page.</p>
+              <a href="fun.html" class="button small">Open</a>
+            </div>
+          </div>
+        </section>
 
       </div>
     </div>
   </div>
 
-  <!-- Foundation scripts -->
   <script src="js/vendor/jquery.js"></script>
   <script src="js/vendor/what-input.js"></script>
   <script src="js/vendor/foundation.js"></script>
   <script>
     $(document).foundation();
-
   </script>
 </body>
 </html>
